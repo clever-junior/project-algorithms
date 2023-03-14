@@ -24,31 +24,24 @@ def merge(arr, start, mid, end):
 
     right = arr[mid:end]  # indexando a lista da direita
 
-    left_index, right_index = 0, 0  # as duas listas começarão do início
+    left_index, right_index = 0, 0
 
     for general_index in range(
         start, end
     ):  # percorrer sobre a lista inteira como se fosse uma
 
-        if left_index >= len(
-            left
-        ):  # se os elementos da esquerda acabaram, preenche o restante com a lista da direita
-
+        if left_index >= len(left):
             arr[general_index] = right[right_index]
 
             right_index = right_index + 1
 
-        elif right_index >= len(
-            right
-        ):  # se os elementos da direita acabaram, preenche o restante com a lista da esquerda
+        elif right_index >= len(right):
 
             arr[general_index] = left[left_index]
 
             left_index = left_index + 1
 
-        elif (
-            left[left_index] < right[right_index]
-        ):  # se o elemento do topo da esquerda for menor que o da direita, ele será o escolhido
+        elif left[left_index] < right[right_index]:
 
             arr[general_index] = left[left_index]
 
