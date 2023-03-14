@@ -7,7 +7,9 @@ def study_schedule(permanence_period, target_time):
     for time in permanence_period:
         index = 0
 
-        if not all(isinstance(hour, int) for hour in time):
+        if not isinstance(time[index], int) or not isinstance(
+            time[index + 1], int
+        ):
             return None
 
         if target_time in range(time[index], time[index + 1] + 1):
